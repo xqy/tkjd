@@ -13,6 +13,8 @@
 // | github 代码仓库：https://github.com/zoujingli/ThinkAdmin
 // +----------------------------------------------------------------------
 
+use think\Env;
+
 return [
     // 默认使用的数据库连接配置
     'default'         => 'mysql',
@@ -26,23 +28,23 @@ return [
     'connections'     => [
         'mysql' => [
             // 数据库类型
-            'type'            => 'mysql',
+            'type'            =>  Env::get('type', 'mysql'),
             // 服务器地址
-            'hostname'        => '127.0.0.1',
+            'hostname'        => Env::get('hostname', '127.0.0.1'),
             // 数据库名
-            'database'        => 'admin_v6',
+            'database'        => Env::get('database', ''),
             // 用户名
-            'username'        => 'root',
+            'username'        => Env::get('username', ''),
             // 密码
-            'password'        => 'root',
+            'password'        => Env::get('password', ''),
             // 端口
-            'hostport'        => '3306',
+            'hostport'        => Env::get('hostport', 3306),
             // 数据库连接参数
             'params'          => [],
             // 数据库编码默认采用utf8
             'charset'         => 'utf8mb4',
             // 数据库表前缀
-            'prefix'          => '',
+            'prefix'          => Env::get('prefix', ''),
             // 数据库调试模式
             'debug'           => app()->isDebug(),
             // 数据库部署方式:0 集中式(单一服务器),1 分布式(主从服务器)
