@@ -1,1 +1,1 @@
-> I
+xqy@earth:/china/xiamen$
